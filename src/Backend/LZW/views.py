@@ -13,7 +13,6 @@ def index(request):
     choice1 = 'decimal'
     choice2 = 'decimal'
 
-    print(request.POST)
     if (request.method == 'POST'):
         choice1 = request.POST['format1']
         choice2 = request.POST['format2']

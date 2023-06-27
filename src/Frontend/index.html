@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1><b>ENCODER</b></h1>
+
 
 <form method="POST">
     {% csrf_token %}
 
     <div>
+        <h2><b>ENCODER</b></h2>
         <label for="chrs">LZW PLAIN TEXT</label><br>
         <textarea name="chars" rows="4" cols="50" id="chrs">{{ request.POST.chars }}</textarea>
     </div>
@@ -23,7 +24,7 @@
     <br>
 
     <div>    
-        <h1><b>DECODER</b></h1>
+        <h2><b>DECODER</b></h2>
         <label for="cd">LZW COMPRESSED TEXT</label>
         <br>
         <textarea name="code" rows="4" cols="50" id="cd">{{ request.POST.code }}</textarea>
@@ -38,18 +39,24 @@
         <input type="radio" name="format2" id="bn2" value="binary" {% if prevChoice2 == 'binary' %} checked {% endif %}>
     </div>
     
-    <br><br>
+    <br>
 
     <input type="submit">
 </form>
 
 {% if enc_result %}
-<h2> ENCODED TEXT: {{enc_result}} </h2>
+    <label for="ans1">
+        <h2> ENCODED TEXT </h2>
+    </label>
+    <textarea name="chars" rows="4" cols="50" id="ans1" readonly>{{enc_result}}</textarea>
 {% endif %}
 
 
 {% if dec_result %}
-<h2> DECODED CODE: {{dec_result}} </h2>
+    <label for="ans2">
+        <h2> DECODED CODE </h2>
+    </label>
+    <textarea name="chars" rows="4" cols="50" id="ans2" readonly>{{dec_result}}</textarea>
 {% endif %}
 
 
