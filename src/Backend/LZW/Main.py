@@ -29,13 +29,13 @@ ascii_list = [chr(i) for i in ascii_range]
 #     print(i)
 #     print(ascii_list[i])
 
-# a = input()
-# enc = encode(a, ascii_list)
-# print(enc)
+a = input()
+enc = encode(a, ascii_list)
+print(enc)
 # nenc = [Utils.decimalToBinary(i) for i in enc]
 # print(nenc)
 
 # b = [Utils.binaryToDecimal(x) for x in nenc]
-b = [97, 98, 98, 97, 262, 261, 97]
-dec = decode(b, ascii_list)
-print(dec)
+# b = []
+# dec = decode(b, ascii_list)
+# print(dec)
