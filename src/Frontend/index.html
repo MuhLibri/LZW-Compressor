@@ -1,1 +1,56 @@
-<h1>Hello world</h1>
+{% extends 'base.html' %}
+
+{% block content %}
+<h1><b>ENCODER</b></h1>
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div>
+        <label for="chrs">LZW PLAIN TEXT</label><br>
+        <textarea name="chars" rows="4" cols="50" id="chrs">{{ request.POST.chars }}</textarea>
+    </div>
+
+
+    <div>
+        <label for="dc1">Decimal</label>
+        <input type="radio" name="format1" id="dc1" value="decimal" {% if prevChoice1 == 'decimal' %} checked {% endif %}>
+
+        <label for="bn1">Binary</label>
+        <input type="radio" name="format1" id="bn1" value="binary" {% if prevChoice1 == 'binary' %} checked {% endif %}>
+    </div>
+
+    <br>
+
+    <div>    
+        <h1><b>DECODER</b></h1>
+        <label for="cd">LZW COMPRESSED TEXT</label>
+        <br>
+        <textarea name="code" rows="4" cols="50" id="cd">{{ request.POST.code }}</textarea>
+    </div>
+
+
+    <div>
+        <label for="dc2">Decimal</label>
+        <input type="radio" name="format2" id="dc2" value="decimal" {% if prevChoice2 == 'decimal' %} checked {% endif %}>
+
+        <label for="bn2">Binary</label>
+        <input type="radio" name="format2" id="bn2" value="binary" {% if prevChoice2 == 'binary' %} checked {% endif %}>
+    </div>
+    
+    <br><br>
+
+    <input type="submit">
+</form>
+
+{% if enc_result %}
+<h2> ENCODED TEXT: {{enc_result}} </h2>
+{% endif %}
+
+
+{% if dec_result %}
+<h2> DECODED CODE: {{dec_result}} </h2>
+{% endif %}
+
+
+{% endblock %}
