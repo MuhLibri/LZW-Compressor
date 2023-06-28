@@ -8,12 +8,13 @@
 
     <div>
         <h2><b>ENCODER</b></h2>
-        <label for="chrs">LZW PLAIN TEXT</label><br>
+        <label for="chrs">PLAIN TEXT</label><br>
         <textarea name="chars" rows="4" cols="50" id="chrs">{{ request.POST.chars }}</textarea>
     </div>
 
 
     <div>
+        <label>Format: </label>
         <label for="dc1">Decimal</label>
         <input type="radio" name="format1" id="dc1" value="decimal" {% if prevChoice1 == 'decimal' %} checked {% endif %}>
 
@@ -25,28 +26,33 @@
 
     <div>    
         <h2><b>DECODER</b></h2>
-        <label for="cd">LZW COMPRESSED TEXT</label>
+        <label for="cd">COMPRESSED TEXT</label>
         <br>
         <textarea name="code" rows="4" cols="50" id="cd">{{ request.POST.code }}</textarea>
     </div>
 
 
     <div>
+        <label>Format: </label>
         <label for="dc2">Decimal</label>
         <input type="radio" name="format2" id="dc2" value="decimal" {% if prevChoice2 == 'decimal' %} checked {% endif %}>
 
         <label for="bn2">Binary</label>
         <input type="radio" name="format2" id="bn2" value="binary" {% if prevChoice2 == 'binary' %} checked {% endif %}>
-    </div>
-    
-    <br>
+    </div><br>
+
+
+    <label for="save">Save Result</label>
+    <input type="checkbox" name="saveCheckbox" id="save" value="1"{% if checked %} checked {% endif %}>
+    <br><br>
+
 
     <input type="submit">
 </form>
 
 {% if enc_result %}
     <label for="ans1">
-        <h2> ENCODED TEXT </h2>
+        <h2>ENCODED TEXT</h2>
     </label>
     <textarea name="chars" rows="4" cols="50" id="ans1" readonly>{{enc_result}}</textarea>
 {% endif %}
@@ -54,10 +60,29 @@
 
 {% if dec_result %}
     <label for="ans2">
-        <h2> DECODED CODE </h2>
+        <h2>DECODED TEXT</h2>
     </label>
     <textarea name="chars" rows="4" cols="50" id="ans2" readonly>{{dec_result}}</textarea>
 {% endif %}
+
+
+<h2>History</h2>
+
+
+<table bgcolor="black" width="950">
+    <tr align="center" bgcolor="grey">
+        <th width="150">Operation</th>
+        <th width="300">Input</th>
+        <th width="500"s>Output</th>
+    </tr>
+    {% for history in histories %}
+    <tr align="center" bgcolor="lightgrey">
+        <td>{{history.name}}</td>
+        <td>{{history.user_input}}</td>
+        <td>{{history.output}}</td>
+    </tr>
+    {% endfor %}
+</table>
 
 
 {% endblock %}
