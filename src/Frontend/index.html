@@ -14,6 +14,19 @@
 
 
     <div>
+        <label for>Algorithm: </label>
+        <label for="lzw1">LZW</label>
+        <input type="radio" name="algorithm1" id="lzw1" value="lzw" {% if prevAlgorithm1 == 'lzw' %} checked {% endif %}>
+
+        <label for="bwt1">BWT + LZW</label>
+        <input type="radio" name="algorithm1" id="bwt1" value="bwt" {% if prevAlgorithm1 == 'bwt' %} checked {% endif %}>
+
+        <label for="rle1">BWT + RLE + LZW</label>
+        <input type="radio" name="algorithm1" id="rle1" value="rle" {% if prevAlgorithm1 == 'rle' %} checked {% endif %}>
+    </div>
+
+
+    <div>
         <label>Format: </label>
         <label for="dc1">Decimal</label>
         <input type="radio" name="format1" id="dc1" value="decimal" {% if prevChoice1 == 'decimal' %} checked {% endif %}>
@@ -33,6 +46,19 @@
 
 
     <div>
+    <label for>Algorithm: </label>
+        <label for="lzw2">LZW</label>
+        <input type="radio" name="algorithm2" id="lzw2" value="lzw" {% if prevAlgorithm2 == 'lzw' %} checked {% endif %}>
+
+        <label for="bwt2">LZW + BWT</label>
+        <input type="radio" name="algorithm2" id="bwt2" value="bwt" {% if prevAlgorithm2 == 'bwt' %} checked {% endif %}>
+
+        <label for="rle2">LZW + RLE + BWT</label>
+        <input type="radio" name="algorithm2" id="rle2" value="rle" {% if prevAlgorithm2 == 'rle' %} checked {% endif %}>
+    </div>
+
+
+    <div>
         <label>Format: </label>
         <label for="dc2">Decimal</label>
         <input type="radio" name="format2" id="dc2" value="decimal" {% if prevChoice2 == 'decimal' %} checked {% endif %}>
@@ -42,8 +68,8 @@
     </div><br>
 
 
-    <label for="save">Save Result</label>
-    <input type="checkbox" name="saveCheckbox" id="save" value="1"{% if checked %} checked {% endif %}>
+    <label for="save">Save result</label>
+    <input type="checkbox" name="saveCheckbox" id="save" value="1"{% if saveChecked %} checked {% endif %}>
     <br><br>
 
 
