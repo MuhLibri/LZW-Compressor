@@ -1,114 +1,157 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LZW Compressor</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
 
-{% block content %}
+<body>
+
+<h1>LZW Compressor</h1><br>
 
 
-<form method="POST">
+<form method="POST" id="form1">
     {% csrf_token %}
 
-    <div>
-        <h2><b>ENCODER</b></h2>
-        <label for="chrs">PLAIN TEXT</label><br>
-        <textarea name="chars" rows="4" cols="50" id="chrs">{{ request.POST.chars }}</textarea>
+    <div id="divEnc">
+        <div id="div1" class="enc">
+            <h2><b>ENCODER</b></h2>
+            <label for="chrs">PLAIN TEXT</label><br>
+            <textarea name="chars" rows="4" cols="50" id="chrs">{{ request.POST.chars }}</textarea>
+        
+            <br>
+
+            <label for>Algorithm: </label>
+
+            <br>
+
+            <input type="radio" name="algorithm1" id="lzw1" value="lzw" {% if prevAlgorithm1 == 'lzw' %} checked {% endif %}>
+            <label for="lzw1">LZW</label>
+
+            <input type="radio" name="algorithm1" id="bwt1" value="bwt" {% if prevAlgorithm1 == 'bwt' %} checked {% endif %}>
+            <label for="bwt1">BWT + LZW</label>
+        
+            <input type="radio" name="algorithm1" id="rle1" value="rle" {% if prevAlgorithm1 == 'rle' %} checked {% endif %}>
+            <label for="rle1">BWT + RLE + LZW</label>
+
+            <br>
+
+            <label>Format: </label>
+
+            <br>
+            
+            <input type="radio" name="format1" id="dc1" value="decimal" {% if prevChoice1 == 'decimal' %} checked {% endif %}>
+            <label for="dc1">Decimal</label>
+
+            <input type="radio" name="format1" id="bn1" value="binary" {% if prevChoice1 == 'binary' %} checked {% endif %}>
+            <label for="bn1">Binary</label>
+        </div>
+
+
+        <div id="div2" class="enc">    
+            <h2><b>DECODER</b></h2>
+            <label for="cd">COMPRESSED TEXT</label>
+
+            <br>
+            
+            <textarea name="code" rows="4" cols="50" id="cd">{{ request.POST.code }}</textarea>
+
+            <br>
+
+            <label for>Algorithm: </label>
+
+            <br>
+
+            <input type="radio" name="algorithm2" id="lzw2" value="lzw" {% if prevAlgorithm2 == 'lzw' %} checked {% endif %}>
+            <label for="lzw2">LZW</label>
+
+            <input type="radio" name="algorithm2" id="bwt2" value="bwt" {% if prevAlgorithm2 == 'bwt' %} checked {% endif %}>
+            <label for="bwt2">LZW + BWT</label>
+
+            <input type="radio" name="algorithm2" id="rle2" value="rle" {% if prevAlgorithm2 == 'rle' %} checked {% endif %}>
+            <label for="rle2">LZW + RLE + BWT</label>
+
+            <br>
+
+            <label>Format: </label>
+
+            <br>
+
+            <input type="radio" name="format2" id="dc2" value="decimal" {% if prevChoice2 == 'decimal' %} checked {% endif %}>
+            <label for="dc2">Decimal</label>
+
+            <input type="radio" name="format2" id="bn2" value="binary" {% if prevChoice2 == 'binary' %} checked {% endif %}>
+            <label for="bn2">Binary</label>
+        </div> 
     </div>
-
-
-    <div>
-        <label for>Algorithm: </label>
-        <label for="lzw1">LZW</label>
-        <input type="radio" name="algorithm1" id="lzw1" value="lzw" {% if prevAlgorithm1 == 'lzw' %} checked {% endif %}>
-
-        <label for="bwt1">BWT + LZW</label>
-        <input type="radio" name="algorithm1" id="bwt1" value="bwt" {% if prevAlgorithm1 == 'bwt' %} checked {% endif %}>
-
-        <label for="rle1">BWT + RLE + LZW</label>
-        <input type="radio" name="algorithm1" id="rle1" value="rle" {% if prevAlgorithm1 == 'rle' %} checked {% endif %}>
-    </div>
-
+    
+    
+    <br>
 
     <div>
-        <label>Format: </label>
-        <label for="dc1">Decimal</label>
-        <input type="radio" name="format1" id="dc1" value="decimal" {% if prevChoice1 == 'decimal' %} checked {% endif %}>
-
-        <label for="bn1">Binary</label>
-        <input type="radio" name="format1" id="bn1" value="binary" {% if prevChoice1 == 'binary' %} checked {% endif %}>
+        <input type="checkbox" name="saveCheckbox" id="save" value="1" {% if saveChecked %} checked {% endif %}>
+        <label for="save">Save result</label>
     </div>
 
     <br>
 
-    <div>    
-        <h2><b>DECODER</b></h2>
-        <label for="cd">COMPRESSED TEXT</label>
-        <br>
-        <textarea name="code" rows="4" cols="50" id="cd">{{ request.POST.code }}</textarea>
-    </div>
-
-
-    <div>
-    <label for>Algorithm: </label>
-        <label for="lzw2">LZW</label>
-        <input type="radio" name="algorithm2" id="lzw2" value="lzw" {% if prevAlgorithm2 == 'lzw' %} checked {% endif %}>
-
-        <label for="bwt2">LZW + BWT</label>
-        <input type="radio" name="algorithm2" id="bwt2" value="bwt" {% if prevAlgorithm2 == 'bwt' %} checked {% endif %}>
-
-        <label for="rle2">LZW + RLE + BWT</label>
-        <input type="radio" name="algorithm2" id="rle2" value="rle" {% if prevAlgorithm2 == 'rle' %} checked {% endif %}>
-    </div>
-
-
-    <div>
-        <label>Format: </label>
-        <label for="dc2">Decimal</label>
-        <input type="radio" name="format2" id="dc2" value="decimal" {% if prevChoice2 == 'decimal' %} checked {% endif %}>
-
-        <label for="bn2">Binary</label>
-        <input type="radio" name="format2" id="bn2" value="binary" {% if prevChoice2 == 'binary' %} checked {% endif %}>
-    </div><br>
-
-
-    <label for="save">Save result</label>
-    <input type="checkbox" name="saveCheckbox" id="save" value="1"{% if saveChecked %} checked {% endif %}>
-    <br><br>
-
-
-    <input type="submit">
+    <input type="submit" id="subm">
 </form>
 
+<br>
+
 {% if enc_result %}
-    <label for="ans1">
-        <h2>ENCODED TEXT</h2>
-    </label>
-    <textarea name="chars" rows="4" cols="50" id="ans1" readonly>{{enc_result}}</textarea>
+<div id="div3">
+    <div>
+        <label for="ans1">
+            <h2>ENCODED TEXT</h2>
+        </label>
+        <textarea name="chars" rows="4" cols="50" id="ans1" readonly>{{enc_result}}</textarea>
+    </div>
+</div>
+
+<br>
 {% endif %}
 
 
 {% if dec_result %}
-    <label for="ans2">
-        <h2>DECODED TEXT</h2>
-    </label>
-    <textarea name="chars" rows="4" cols="50" id="ans2" readonly>{{dec_result}}</textarea>
+<div id="div4">
+    <div>
+        <label for="ans2">
+            <h2>DECODED TEXT</h2>
+        </label>
+        <textarea name="chars" rows="4" cols="50" id="ans2" readonly>{{dec_result}}</textarea>
+    </div>
+</div>
+
+<br>
 {% endif %}
 
 
-<h2>History</h2>
+<div id="div5">
+    <div>
+        <h2>History</h2>
 
+        <table id="history_table">
+            <tr id="table_header">
+                <th width="150">Operation</th>
+                <th width="300">Input</th>
+                <th width="500"s>Output</th>
+            </tr>
+            {% for history in histories %}
+            <tr id="table_content">
+                <td>{{history.name}}</td>
+                <td>{{history.user_input}}</td>
+                <td>{{history.output}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</div>
 
-<table bgcolor="black" width="950">
-    <tr align="center" bgcolor="grey">
-        <th width="150">Operation</th>
-        <th width="300">Input</th>
-        <th width="500"s>Output</th>
-    </tr>
-    {% for history in histories %}
-    <tr align="center" bgcolor="lightgrey">
-        <td>{{history.name}}</td>
-        <td>{{history.user_input}}</td>
-        <td>{{history.output}}</td>
-    </tr>
-    {% endfor %}
-</table>
-
-
-{% endblock %}
+   
+</body>
+</html>
