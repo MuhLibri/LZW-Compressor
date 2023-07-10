@@ -6,8 +6,8 @@
     }],
     "routes": [
         {
-            "src": "Backend/(.*)",
-            "dest": "Backend/LZWCompressor/wsgi.py"
+            "src": "/(.*)",
+            "dest": "LZWCompressor/wsgi.py"
         }
     ]
 }
