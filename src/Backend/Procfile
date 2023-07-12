@@ -1,1 +1,1 @@
-web: gunicorn LZWCompressor.wsgi.py --log-file -
+web: gunicorn LZWCompressor.wsgi --log-file -
