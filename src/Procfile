@@ -1,0 +1,1 @@
+web: gunicorn Backend.LZWCompressor.wsgi --log-file -
