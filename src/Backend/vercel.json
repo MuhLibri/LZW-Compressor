@@ -2,12 +2,12 @@
   "version": 2,
   "builds": [
     {
-      "src": "Backend/LZWCompressor/wsgi.py",
+      "src": "LZWCompressor/wsgi.py",
       "use": "@vercel/python",
       "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
     },
     {
-      "src": "Backend/build_files.sh",
+      "src": "build_files.sh",
       "use": "@vercel/static-build",
       "config": {
         "distDir": "staticfiles_build"
@@ -21,7 +21,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "Backend/LZWCompressor/wsgi.py"
+      "dest": "LZWCompressor/wsgi.py"
     }
   ]
 }
