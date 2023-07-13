@@ -47,20 +47,19 @@ def index(request):
                 history1.save()
 
         if (code != ''):
-            alg2 = ""
+            alg2 = "LZW"
             codeList = code.split()
             if (request.POST['format2'] == 'binary'):
                 codeList = [Utils.Utils.binaryToDecimal(x) for x in codeList]
             codeList = [int(i) for i in codeList]
             dec_res = Decoder.decode(codeList, ascii_list)
             if (algorithm2 == 'rle'):
-                alg2 += "RLE+"
+                alg2 += "+RLE"
                 dec_res = Decoder.rleDecode(dec_res)
             if (algorithm2 == 'rle' or algorithm2 == 'bwt'):
-                alg2 += "BWT+"
+                alg2 += "+BWT"
                 dec_res = Decoder.bwtDecode(dec_res)
             if (saveChecked):
-                alg2 += "LZW"
                 history2 = History()
                 history2.name = "Decompression" + " (" + alg2 + ")"
                 history2.user_input = code
