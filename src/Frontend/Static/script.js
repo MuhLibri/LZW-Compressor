@@ -1,3 +1,5 @@
+const backendUrl = 'https://lzw-compressor13521047-production.up.railway.app'
+
 fetchHistory();
 const myForm = document.getElementById('form1');
 
@@ -5,7 +7,7 @@ myForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(this);
 
-    fetch('http://127.0.0.1:8000', {
+    fetch(backendUrl, {
         method: 'post',
         body: formData
     })
@@ -30,7 +32,7 @@ function displayData(response) {
 }
 
 function fetchHistory() {
-    fetch('http://127.0.0.1:8000/history', {
+    fetch(backendUrl + '/history', {
     method: 'get',
     })
     .then(response => response.json())
