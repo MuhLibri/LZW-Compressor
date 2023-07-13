@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-x0lhex@-+2lu23p28yz4@s1^nzw3xed5@tz1tt7q_nvxhl3&5+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['.vercel.app', '.now.sh', '127.0.0.1', 'localhost']
 ALLOWED_HOSTS = ['*']
@@ -63,7 +63,7 @@ ROOT_URLCONF = 'LZWCompressor.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(os.path.dirname(BASE_DIR), 'Frontend')],
+        'DIRS': [os.path.join(BASE_DIR, 'Frontend')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,10 +131,10 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
-    os.path.join(os.path.dirname(BASE_DIR), 'Frontend/Static/')
+    os.path.join(BASE_DIR, 'Frontend/Static/')
 ]
 
-STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'staticfiles_build', 'Frontend/Static/')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'Frontend/Static/')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
