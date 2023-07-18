@@ -8,7 +8,7 @@ Webapp dapat melakuan kompresi dan dekompresi dengan metode:
 2. LZW dan BWT
 3. LZW, BWT, dan RLE
 
-Format kompres dan dekompres dapat diubah menjadi decimal atau binary. Selain itu, Webapp juga dapat menyimpan hasil kompres dan dekompres. 
+Format kompres dan dekompres dapat diubah menjadi decimal atau binary. Selain itu, webapp juga dapat menyimpan hasil kompres dan dekompres. 
 
 
 # How Does It Works?
