@@ -33,7 +33,7 @@ Untuk algoritma BWT dan RLE dilakukan sebelum algoritma LZW pada proses kompresi
 Algoritma RLE merupakan algoritma yang mengganti kemunculan karakter yang berulang dengan karakter + jumlah perulangan (misal: "aaaa" menjadi "a4"). 
 
 
-## Untuk proses dekompresi, program akan menerima input berupa angka decimal atau binary bergantung pada pilihan user. input lalu diproses dengan langkah-langkah berikut:
+## Untuk proses dekompresi, program akan menerima input berupa angka decimal atau binary bergantung pada pilihan user. Input lalu diproses dengan langkah-langkah berikut:
 1. Program akan menginisialisasi variabel entries dengan karakter ascii (terdiri dari 256 karakter seperti pada web: https://www.ascii-code.com/) dengan index merupakan angka decimal dari karakter ascii (misal: index 97 pada entries merupakan karakter "a").
 2. Program akan menginisialisasi variabel output berupa string kosong.
 3. Program akan menginisialisasi variabel currentCode dengan decimal input pertama.
