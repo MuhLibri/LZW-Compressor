@@ -55,8 +55,12 @@ Untuk algoritma RLE, program akan mengubah format karakter+angka kemunculan menj
 
 
 # Requirements
-Requirements hanya diperlukan jika ingin menjalankan program secara lokal. Requirements dapat dilihat pada file ```requirements.txt``` pada folder ```src/Backend```
+Requirements hanya diperlukan jika ingin menjalankan program secara lokal. Requirements dari program ini adalah python3 dengan package yang dapat dilihat pada file ```requirements.txt``` pada folder ```src/Backend```.
 
 
 # How To Run
-Untuk mengakses webapp, dapat mengakses link berikut: https://lzw-compressor.up.railway.app/. Untuk menjalankan secara lokal dapat mengubah ```backendUrl``` pada file ```script.js``` di folder ```src/Frontend/Static``` menjadi ```http://127.0.0.1:8000```. Lalu jalankan backend terlebih dahulu dengan mengetikkan ```python manage.py runserver``` pada terminal di directory ```src/Backend```. Setelah itu, jalankan file ```index.html``` pada folder frontend dengan port yang berbeda.
+Untuk mengakses webapp, dapat mengakses link berikut: https://lzw-compressor.up.railway.app/. Untuk menjalankan secara lokal, langkah-langkahnya sebagai berikut:
+1. Unduh package pada ```requirements.txt``` dengan cara mengetikkan ```pip install -r requirements.txt``` pada directory ```src/Backend```.
+2. Kemudian ubah ```backendUrl``` pada file ```script.js``` di folder ```src/Frontend/Static``` menjadi ```http://127.0.0.1:8000```.
+3. Lalu jalankan backend terlebih dahulu dengan mengetikkan ```python manage.py runserver``` pada terminal di directory ```src/Backend```.
+4. Setelah itu, jalankan file ```index.html``` pada folder frontend dengan port yang berbeda.
