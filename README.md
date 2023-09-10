@@ -77,7 +77,7 @@ Untuk melakukan kompresi, pengguna dapat memasukkan teks yang ingin dikompresi p
 
 Klik tombol ```Submit``` dan hasil kompresi akan keluar pada bagian ```ENCODED TEXT```.
 
-![Alt text](documentations/encode.png?raw=true)
+![Alt text](documentations/encode_result.png?raw=true)
 
 Untuk melakukan dekompresi, pengguna dapat memasukkan teks yang ingin dikompresi pada bagian ```COMPRESSED TEXT``` di ```DECODER```. Pengguna dapat memilih algoritma yang ingin digunakan untuk proses kompresi serta format inputnya.
 
@@ -85,7 +85,7 @@ Untuk melakukan dekompresi, pengguna dapat memasukkan teks yang ingin dikompresi
 
 Lalu, klik tombol ```Submit``` dan hasil dekompresi akan keluar pada bagian ```DECODED TEXT```.
 
-![Alt text](documentations/decode.png?raw=true)
+![Alt text](documentations/decode_result.png?raw=true)
 
 Jika pengguna ingin menyimpan hasil kompresi/dekompresi, pengguna dapat mencentang tombol ```Save result``` dan submit hasil kompresi/dekompresi seperti biasa. Hasil kompresi dan dekompresi akan tersimpan pada database dan ditampilkan di tabel History.
 
