@@ -8,7 +8,7 @@ Webapp dapat melakuan kompresi dan dekompresi dengan metode:
 2. LZW dan BWT
 3. LZW, BWT, dan RLE
 
-Format kompres dan dekompres dapat diubah menjadi decimal atau binary. Selain itu, webapp juga dapat menyimpan hasil kompresi dan dekompresi. Webapp juga dapat menyimpan hasil kompresi/dekompresi.
+Format kompres dan dekompres dapat diubah menjadi decimal atau binary. Selain itu, webapp juga dapat menyimpan hasil kompresi dan dekompresi.
 
 
 # How Does It Works?
@@ -69,25 +69,25 @@ Untuk mengakses webapp, dapat mengakses link berikut: https://lzw-compressor.up.
 # How To Use
 Saat pertama menjalankan webapp, tampilan layar akan seperti berikut
 
-```![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")```
+![Alt text](documentations/default.png?raw=true)
 
 Untuk melakukan kompresi, pengguna dapat memasukkan teks yang ingin dikompresi pada bagian ```PLAIN TEXT``` di ```ENCODER```. Pengguna dapat memilih algoritma yang ingin digunakan untuk proses kompresi serta format outputnya.
 
-```![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")```
+![Alt text](documentations/input_encode.png?raw=true)
 
 Klik tombol ```Submit``` dan hasil kompresi akan keluar pada bagian ```ENCODED TEXT```.
 
-```![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")```
+![Alt text](documentations/encode.png?raw=true)
 
 Untuk melakukan dekompresi, pengguna dapat memasukkan teks yang ingin dikompresi pada bagian ```COMPRESSED TEXT``` di ```DECODER```. Pengguna dapat memilih algoritma yang ingin digunakan untuk proses kompresi serta format inputnya.
 
-```![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")```
+![Alt text](documentations/input_decode.png?raw=true)
 
 Lalu, klik tombol ```Submit``` dan hasil dekompresi akan keluar pada bagian ```DECODED TEXT```.
 
-```![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")```
+![Alt text](documentations/decode.png?raw=true)
 
 Jika pengguna ingin menyimpan hasil kompresi/dekompresi, pengguna dapat mencentang tombol ```Save result``` dan submit hasil kompresi/dekompresi seperti biasa. Hasil kompresi dan dekompresi akan tersimpan pada database dan ditampilkan di tabel History.
 
-```![Alt text](/relative/path/to/img.jpg?raw=true "Optional Title")```
+![Alt text](documentations/saved.png?raw=true)
 
